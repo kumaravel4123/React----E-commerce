@@ -1,0 +1,9 @@
+
+
+.home-carousel img{
+    width: 100%;
+    aspect-ratio: 16/4;
+    object-fit: cover;
+    object-position: top;
+
+}

@@ -1,0 +1,25 @@
+.btn{
+    margin: 10px;
+    height: 40px;
+    display: none;
+}
+
+.card{
+    margin-top: 10px;
+    height: 400px;
+    overflow: hidden;
+
+}
+
+img.card-img-top{
+   height: 60%;
+   object-fit: cover;
+   object-position: center;
+}
+
+.card-body {
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

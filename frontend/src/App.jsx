@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
+
 
 const App = () =>{
   return(
@@ -8,9 +9,9 @@ const App = () =>{
     <>
     <header>
   
-          <Navbar />
+        <Navbar />
     </header>
-    <main className='container mt-4'>
+    <main className='container-fluid mt-4'>
 
         <Outlet />
 
