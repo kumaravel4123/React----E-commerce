@@ -11,15 +11,27 @@
 
 }
 
-img.card-img-top{
-   height: 60%;
+.card-img-top{
+   height: 30%;
    object-fit: cover;
    object-position: center;
 }
 
 .card-body {
-    height: 40%;
+    height: 20%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.card:hover{
+    transform: scale(1.01);
+    transition: 500ms;
+    box-shadow: 4px 4px 2px 2px rgb(194, 191, 191), -4px -4px 2px 2px rgb(194, 191, 191);
+}
+
+.btn:hover{
+     transform: scale(1.01);
+    transition: 500ms;
+    box-shadow: 4px 4px 2px 2px rgb(194, 191, 191);
 }
