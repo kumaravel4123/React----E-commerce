@@ -13,6 +13,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.min.js";
 import './index.css'
 import Notfound from './pages/Notfound.jsx';
+import ProductDetails from './pages/ProductDetails.jsx';
+
+
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary.jsx';
+import { CurrencyProvider } from './context/CurrencyContext.jsx';
+
+
 
 const router = createBrowserRouter([
   {
@@ -22,13 +29,30 @@ const router = createBrowserRouter([
       {path: "/", element: <Home />},
       {path: "about", element: <About />},
       {path: "contact", element: <Contact />},
+      {path: "product/:id", element:<ProductDetails />}
     ],
-    errorElement: <Notfound />,
+    // errorElement: <Notfound />,
   },
 ])
 
 createRoot(document.getElementById('root')).render(
+
   <StrictMode>
-    <RouterProvider router = {router} />
+    <ErrorBoundary>
+      <CurrencyProvider>
+        <RouterProvider router={router} />
+      </CurrencyProvider>
+    </ErrorBoundary>
   </StrictMode>,
+
+// <StrictMode>
+//   <ErrorBoundary>
+//     <CurrencyProvider>
+//       <RouterProvider router={router} />
+//     </CurrencyProvider>
+//   </ErrorBoundary>
+// </StrictMode>,
+
+
+
 )

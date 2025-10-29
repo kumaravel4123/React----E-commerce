@@ -1,18 +1,12 @@
-.btn{
-    margin: 10px;
-    height: 40px;
-    display: none;
-}
 
-.card{
+div.product-card{
     margin-top: 10px;
-    height: 400px;
-    overflow: hidden;
-
+    height: 300px;
+    /* overflow: hidden; */
 }
 
 .card-img-top{
-   height: 30%;
+   max-height: 30%;
    object-fit: cover;
    object-position: center;
 }
