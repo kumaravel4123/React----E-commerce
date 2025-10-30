@@ -11,7 +11,7 @@ const App = () =>{
   
         <Navbar />
     </header>
-    <main className='container-fluid mt-4'>
+    <main className='container mt-4 p5'>
 
         <Outlet />
 

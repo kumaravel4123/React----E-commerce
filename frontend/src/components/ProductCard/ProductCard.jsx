@@ -1,6 +1,8 @@
-import { useCurrency } from "../../context/CurrencyContext";
-import { Link } from "react-router-dom";
 import React from "react";
+import { Link } from "react-router-dom";
+
+import { useCurrency } from "../../context/CurrencyContext";
+
 import './ProductCard.css';
 
 
@@ -11,12 +13,14 @@ const img_server_path = "/images/Products_img/"
 const ProductCard = ({ product }) => {
   const { convertPrice, getSymbol, loading } = useCurrency();
 
+
+  // Using convertPrice() to calculate converted price of individual product.
   const converted = convertPrice(product.price);
 
   return (
-    <>
-      <div className="col col-6 col-sm-6 col-md-4 col-lg-3">
-        <div className="card product-card">
+  
+      <div className="prod col-6 col-sm-6 col-md-4 col-lg-3">
+        <div className="card h-100">
           <Link
             to={`/product/${product.id}`}
             state={{ product }}
@@ -41,19 +45,21 @@ const ProductCard = ({ product }) => {
                   {/* converted shows converted currency after calculation */}
                 </p>
                 <p className="card-text text-secondary small">
-                  (Base: ${product.price} USD)
+                  (Base: ₹{product.price} INR)
                 </p>
               </>
             )}
              </div>   
             </Link>
+            <div className="card-footer bg-transparent border-0">
         
-            <a  className="btn btn-primary">  Add to cart  </a>
-            <a className="btn btn-primary"> Buy </a>
+            <a  className="btn btn-primary w-100 my-1">  Add to cart  </a>
+            <a className="btn btn-primary w-100"> Buy </a>
+          </div>
           </div>
         </div>
       
-    </>
+  
 
   );
 };

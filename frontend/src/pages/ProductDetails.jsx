@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation, Link, useParams } from "react-router-dom";
 import { useCurrency } from "../context/CurrencyContext";
 
-const img_server_path = "/images/products/";
+const img_server_path = "/images/Products_img/";
 
 const ProductDetails = () => {
   const { state } = useLocation();
@@ -50,7 +50,7 @@ const ProductDetails = () => {
             </h4>
           )}
 
-          <p className="text-secondary small">(Base: ${product.price} USD)</p>
+          <p className="text-secondary small">(Base: ₹{product.price} INR)</p>
 
           <button className="btn btn-success me-3">Add to Cart</button>
           <Link to="/" className="btn btn-outline-secondary">

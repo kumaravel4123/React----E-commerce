@@ -15,7 +15,7 @@ export const CurrencyProvider = ({ children }) => {
         const fetchRates = async () => {
             try {
                 setLoading(true);
-                const res = await axios.get("https://open.er-api.com/v6/latest/USD");
+                const res = await axios.get("https://open.er-api.com/v6/latest/INR");
 
                 if (res.data && res.data.rates) {
                     setRates(res.data.rates);
@@ -33,10 +33,10 @@ export const CurrencyProvider = ({ children }) => {
     }, []);
 
     // Convert USD -> selected currency safely
-    const convertPrice = (priceInUSD) => {
-        if (!priceInUSD) return 0;
-        if (!rates || !rates[currency]) return priceInUSD; // fallback if rates not loaded
-        const converted = priceInUSD * rates[currency];
+    const convertPrice = (priceInINR) => {
+        if (!priceInINR) return 0;
+        if (!rates || !rates[currency]) return priceInINR; // fallback if rates not loaded
+        const converted = priceInINR * rates[currency];
         return converted.toFixed(2);
     };
 

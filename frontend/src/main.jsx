@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       {path: "contact", element: <Contact />},
       {path: "product/:id", element:<ProductDetails />}
     ],
-    // errorElement: <Notfound />,
+    errorElement: <Notfound />,
   },
 ])
 
@@ -44,15 +44,4 @@ createRoot(document.getElementById('root')).render(
       </CurrencyProvider>
     </ErrorBoundary>
   </StrictMode>,
-
-// <StrictMode>
-//   <ErrorBoundary>
-//     <CurrencyProvider>
-//       <RouterProvider router={router} />
-//     </CurrencyProvider>
-//   </ErrorBoundary>
-// </StrictMode>,
-
-
-
 )
