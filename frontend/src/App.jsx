@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
 
 
 const App = () =>{
@@ -11,13 +12,13 @@ const App = () =>{
   
         <Navbar />
     </header>
-    <main className='container mt-4 p5'>
+    <main className='container-fluid mt-4 p-5'>
 
         <Outlet />
 
     </main>
     <footer>
-
+         <Footer />
     </footer>
     </>
   );
