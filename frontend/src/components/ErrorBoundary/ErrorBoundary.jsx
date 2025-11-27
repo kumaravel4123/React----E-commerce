@@ -27,7 +27,7 @@ class ErrorBoundary extends React.Component {
           <h2 className="text-danger">Something went wrong 😞</h2>
           <p className="text-muted">{this.state.error?.message}</p>
           <button className="btn btn-primary mt-3" onClick={this.handleReload}>
-            Reload Page
+            Reload Page...
           </button>
         </div>
       );
