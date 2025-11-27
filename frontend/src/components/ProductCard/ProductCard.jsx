@@ -19,7 +19,7 @@ const ProductCard = ({ product }) => {
 
   return (
   
-      <div className="prod col-6 col-sm-6 col-md-4 col-lg-3">
+      <div className="prod col-12 col-sm-6 col-md-4 col-lg-3">
         <div className="card h-100">
           <Link
             to={`/product/${product.id}`}
