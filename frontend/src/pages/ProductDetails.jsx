@@ -27,11 +27,16 @@ const ProductDetails = () => {
 
   const convertedPrice = convertPrice(product.price);
 
+  const styles = {
+    height : "400px"
+  }
+
   return (
     <div className="container my-5">
       <div className="row align-items-center">
         <div className="col-md-6 text-center">
           <img
+            style={styles}
             src={`${img_server_path}${product.img_src}`}
             alt={product.title}
             className="img-fluid rounded shadow-sm"
@@ -59,6 +64,7 @@ const ProductDetails = () => {
         </div>
       </div>
     </div>
+    
   );
 };
 

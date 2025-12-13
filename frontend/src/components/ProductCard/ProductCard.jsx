@@ -18,7 +18,7 @@ const ProductCard = ({ product }) => {
   const converted = convertPrice(product.price);
 
   return (
-  
+    <>
       <div className="prod col-12 col-sm-6 col-md-4 col-lg-3">
         <div className="card h-100">
           <Link
@@ -27,40 +27,39 @@ const ProductCard = ({ product }) => {
             className="card-link-area text-decoration-none text-dark"
             aria-label={`View details for ${product.title}`}
           >
-          <img
-            src={`${img_server_path}${product.img_src}`}
-            className="card-img-top"
-            alt="..." 
+            <img
+              src={`${img_server_path}${product.img_src}`}
+              className="card-img-top"
+              alt="..."
             />
-          <div className="card-body">
-            <h5 className="card-title">{product.title}</h5>
+            <div className="card-body">
+              <h5 className="card-title">{product.title}</h5>
 
-            {loading ? (
-              <p className="card-text text-muted">Loading Currency...</p>
-            ):(
-              <>
-              <p className="card-text mb-1 fw-bold">
-                  {getSymbol()} {converted}
-                  {/* getSymbol retrieves currency symbol */}
-                  {/* converted shows converted currency after calculation */}
-                </p>
-                <p className="card-text text-secondary small">
-                  (Base: ₹{product.price} INR)
-                </p>
-              </>
-            )}
-             </div>   
-            </Link>
-            <div className="card-footer bg-transparent border-0">
-        
-            <a  className="btn btn-primary w-100 my-1">  Add to cart  </a>
+              {loading ? (
+                <p className="card-text text-muted">Loading Currency...</p>
+              ) : (
+                <>
+                  <p className="card-text mb-1 fw-bold">
+                    {getSymbol()} {converted}
+                    {/* getSymbol retrieves currency symbol */}
+                    {/* converted shows converted currency after calculation */}
+                  </p>
+                  <p className="card-text text-secondary small">
+                    (Base: ₹{product.price} INR)
+                  </p>
+                </>
+              )}
+            </div>
+          </Link>
+          <div className="card-footer bg-transparent border-0">
+
+            <a className="btn btn-primary w-100 my-1">  Add to cart  </a>
             <a className="btn btn-primary w-100"> Buy </a>
           </div>
-          </div>
         </div>
-      
-  
 
+      </div>
+    </>
   );
 };
 

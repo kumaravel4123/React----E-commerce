@@ -1,5 +1,6 @@
 import Carousel from "../components/Carousel/Carousel";
 import ProductCard from "../components/ProductCard/ProductCard";
+import Footer from "../components/Footer/Footer";
 
 const fake_products = [
     
@@ -78,6 +79,8 @@ const fake_products = [
     
 ]
 
+
+
 const Home = () =>{
     return (
         <>
@@ -90,6 +93,9 @@ const Home = () =>{
                   })
           }
         </section>
+        </div>
+        <div className="container-fluid p-0">
+            <Footer />
         </div>
         </>
     )
