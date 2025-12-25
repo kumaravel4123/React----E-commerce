@@ -7,76 +7,88 @@ import { useCurrency } from "../../context/CurrencyContext";
 
 
 const Navbar = () => {
-     const { currency, setCurrency, loading } = useCurrency();
+    const { currency, setCurrency, loading } = useCurrency();
     return (
-
-        <nav className="navbar navbar-expand-lg bg-dark z-3" data-bs-theme="dark">
-            <div className="container-fluid">
-                <Link className="navbar-brand fw-bold" to="/">Rollcart</Link>
-                <button className="navbar-toggler" 
-                        type="button" 
-                        data-bs-toggle="collapse" 
-                        data-bs-target="#navbarSupportedContent" 
-                        aria-controls="navbarSupportedContent" 
-                        aria-expanded="false" 
+        <>
+            <nav className="navbar navbar-expand-lg bg-dark w-100" id="rollnav" data-bs-theme="dark">
+                <div className="container-fluid">
+                    <Link className="navbar-brand fw-bold" to="/">Rollcart</Link>
+                    <button className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent"
+                        aria-expanded="false"
                         aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
-                            <Link className="nav-link active" aria-current="page" to="/">Home</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="#">Link</Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link className="nav-link" to="#">Cart</Link>
-                        </li>
-                        <li className="nav-item dropdown">
-                            <Link className="nav-link dropdown-toggle" 
-                                  to="#" role="button" 
-                                  data-bs-toggle="dropdown" 
-                                  aria-expanded="false">Dropdown
-                            </Link>
-                            <ul className="dropdown-menu">
-                                <li><Link className="dropdown-item" to="/about">About</Link></li>
-                                <li><Link className="dropdown-item" to="/contact">Contact</Link></li>
-                            </ul>
+                        <span className="navbar-toggler-icon"></span>
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li className="nav-item">
+                                <Link className="nav-link active" aria-current="page" to="/">Home</Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="#offcanvasWithBothOptions" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">Cart</Link>
+                            </li>
+                            <li className="nav-item dropdown">
+                                <Link className="nav-link dropdown-toggle"
+                                    to="#" role="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">Dropdown
+                                </Link>
+                                <ul className="dropdown-menu">
+                                    <li><Link className="dropdown-item" to="/about">About</Link></li>
+                                    <li><Link className="dropdown-item" to="/contact">Contact</Link></li>
+                                </ul>
 
-                        </li>
-                    </ul>
-                    <form className="d-flex" role="search">
-                        <input className="form-control me-2 " type="search" placeholder="Search" aria-label="Search" />
-                        {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
-                    </form>
+                            </li>
+                        </ul>
+                        <form className="d-flex" role="search">
+                            <input className="form-control me-2 " type="search" placeholder="Search" aria-label="Search" />
+                            {/* <button className="btn btn-outline-success" type="submit">Search</button> */}
+                        </form>
 
-                    {/* Currency Selector */}
-                    <div className="d-flex align-items-center text-light">
-                        <label htmlFor="currencySelect" className="me-2 small mb-0">
-                            Currency:
-                        </label>
-                        {loading ? (
-                            <span className="text-light small">Loading...</span>
-                        ) : (
-                            <select
-                                id="currencySelect"
-                                value={currency}
-                                onChange={(e) => setCurrency(e.target.value)}
-                                className="form-select form-select-sm bg-dark text-light border-light w-auto"
-                                aria-label="Currency selector"
-                            >
-                                {["USD", "EUR", "INR", "GBP", "JPY"].map((code) => (
-                                    <option key={code} value={code}>
-                                        {code}
-                                    </option>
-                                ))}
-                            </select>
-                        )}
+                        {/* Currency Selector */}
+                        <div className="d-flex align-items-center text-light">
+                            <label htmlFor="currencySelect" className="me-2 small mb-0">
+                                Currency:
+                            </label>
+                            {loading ? (
+                                <span className="text-light small">Loading...</span>
+                            ) : (
+                                <select
+                                    id="currencySelect"
+                                    value={currency}
+                                    onChange={(e) => setCurrency(e.target.value)}
+                                    className="form-select form-select-sm bg-dark text-light border-light w-auto"
+                                    aria-label="Currency selector"
+                                >
+                                    {["USD", "EUR", "INR", "GBP", "JPY"].map((code) => (
+                                        <option key={code} value={code}>
+                                            {code}
+                                        </option>
+                                    ))}
+                                </select>
+                            )}
+                        </div>
                     </div>
                 </div>
+            </nav>
+
+        {/* Offcanvas */}
+
+
+            <div className="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+                <div className="offcanvas-header">
+                    <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">RollCart</h5>
+                    <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div className="offcanvas-body">
+                    <p>Your cart is Empty...</p>
+                </div>
             </div>
-        </nav>
+
+        </>
 
     );
 }
