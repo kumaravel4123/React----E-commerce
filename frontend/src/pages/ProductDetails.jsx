@@ -32,7 +32,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="container my-5">
+    <div className="container my-5 pt-5">
       <div className="row align-items-center">
         <div className="col-md-6 text-center">
           <img
